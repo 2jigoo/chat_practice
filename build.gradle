@@ -30,10 +30,10 @@ dependencies {
    // Lombok
    providedCompile group: 'org.projectlombok', name: 'lombok', version: '1.18.16'
    
-   compileOnly 'org.projectlombok:lombok:${version.lombok}'
-   annotationProcessor 'org.projectlombok:lombok:${version.lombok}'
-   testCompileOnly 'org.projectlombok:lombok:${version.lombok}'
-   testAnnotationProcessor 'org.projectlombok:lombok:${version.lombok}'
+   //compileOnly 'org.projectlombok:lombok:1.18.12'
+   //annotationProcessor 'org.projectlombok:lombok:1.18.12'
+   //testCompileOnly 'org.projectlombok:lombok:1.18.12'
+   //testAnnotationProcessor 'org.projectlombok:lombok:1.18.12'
    
    // spring
    compile group: 'org.springframework', name: 'spring-context', version: "${version.spring}"

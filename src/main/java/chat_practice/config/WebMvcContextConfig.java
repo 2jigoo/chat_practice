@@ -11,7 +11,7 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
 @Configuration
 @EnableWebMvc
-@ComponentScan(basePackages = {"daangnmungcat.controller"})
+@ComponentScan(basePackages = {"chat_practice.controller"})
 public class WebMvcContextConfig implements WebMvcConfigurer {
 	
 	@Override
@@ -46,7 +46,6 @@ public class WebMvcContextConfig implements WebMvcConfigurer {
 	public void addViewControllers(final ViewControllerRegistry registry) {
 		System.out.println("addViewControllers 호출");
 		registry.addViewController("/").setViewName("main");
-		registry.addViewController("/stompTest").setViewName("stomp_test");
 	}
 	
 	/*
@@ -58,6 +57,5 @@ public class WebMvcContextConfig implements WebMvcConfigurer {
 		return ms;
 	}
 	*/
-	
 
 }

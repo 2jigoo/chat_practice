@@ -21,6 +21,7 @@ public class ChatRoom {
         this.name = name;
     }
 
+    // 입장, 대화하기의 기능을 분기 처리
     public void handleActions(WebSocketSession session, ChatMessage chatMessage, ChatService chatService) {
         if (chatMessage.getType().equals(ChatMessage.MessageType.ENTER)) {
             sessions.add(session);
