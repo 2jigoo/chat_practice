@@ -1,0 +1,69 @@
+plugins {
+    id 'java'
+    id 'war'
+    id 'eclipse-wtp'
+}
+
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
+
+tasks.withType(JavaCompile) {
+    options.encoding = 'UTF-8'
+}
+
+repositories {
+    jcenter()
+}
+
+def version = [
+   spring: '5.2.9.RELEASE',
+   log4j2: '2.13.3',
+   lombok: '1.18.12'
+]
+
+dependencies {
+   // jsp
+   compile group: 'javax.servlet', name: 'jstl', version: '1.2'
+   providedCompile group: 'javax.servlet', name: 'javax.servlet-api', version: '3.1.0'
+   providedCompile group: 'javax.servlet.jsp', name: 'javax.servlet.jsp-api', version: '2.3.3'
+
+   // Lombok
+   providedCompile group: 'org.projectlombok', name: 'lombok', version: '1.18.16'
+   
+   compileOnly 'org.projectlombok:lombok:${version.lombok}'
+   annotationProcessor 'org.projectlombok:lombok:${version.lombok}'
+   testCompileOnly 'org.projectlombok:lombok:${version.lombok}'
+   testAnnotationProcessor 'org.projectlombok:lombok:${version.lombok}'
+   
+   // spring
+   compile group: 'org.springframework', name: 'spring-context', version: "${version.spring}"
+   compile group: 'org.springframework', name: 'spring-webmvc', version: "${version.spring}"
+   testCompile group: 'org.springframework', name: 'spring-test', version: "${version.spring}"
+   runtime group: 'org.aspectj', name: 'aspectjweaver', version: '1.9.6'
+   
+   compile group: 'org.springframework', name: 'spring-websocket', version: "${version.spring}"
+   compile group: 'org.springframework', name: 'spring-messaging', version: "${version.spring}"
+   
+   
+   // DB 연동 관련
+   compile group: 'org.springframework', name: 'spring-jdbc', version: "${version.spring}"
+   compile group: 'com.oracle.database.jdbc', name: 'ojdbc8', version: '19.7.0.0'
+    
+   // myBatis
+   compile group: 'org.mybatis', name: 'mybatis-spring', version: '2.0.5'
+   compile group: 'org.mybatis', name: 'mybatis', version: '3.5.5'
+    
+   // Hikari CP
+   compile group: 'com.zaxxer', name: 'HikariCP', version: '3.4.5'
+
+   //log4j2
+   compile group: 'org.apache.logging.log4j', name: 'log4j-api', version: "${version.log4j2}"
+   compile group: 'org.apache.logging.log4j', name: 'log4j-core', version: "${version.log4j2}"
+   compile group: 'org.slf4j', name: 'slf4j-api', version: '1.7.30'
+   testCompile group: 'org.apache.logging.log4j', name: 'log4j-slf4j-impl', version: "${version.log4j2}"
+   
+   compile group: 'com.fasterxml.jackson.core', name: 'jackson-databind', version: '2.11.3'
+   compile group: 'com.fasterxml.jackson.datatype', name: 'jackson-datatype-jdk8', version: '2.11.3'
+
+   testImplementation 'junit:junit:4.12'
+}
