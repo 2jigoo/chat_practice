@@ -43,7 +43,7 @@ dependencies {
    
    compile group: 'org.springframework', name: 'spring-websocket', version: "${version.spring}"
    compile group: 'org.springframework', name: 'spring-messaging', version: "${version.spring}"
-   
+   compile group: 'org.springframework.integration', name: 'spring-integration-stomp', version: "${version.spring}"
    
    // DB 연동 관련
    compile group: 'org.springframework', name: 'spring-jdbc', version: "${version.spring}"
@@ -63,7 +63,17 @@ dependencies {
    testCompile group: 'org.apache.logging.log4j', name: 'log4j-slf4j-impl', version: "${version.log4j2}"
    
    compile group: 'com.fasterxml.jackson.core', name: 'jackson-databind', version: '2.11.3'
+   compile group: 'com.fasterxml.jackson.core', name: 'jackson-databind', version: '2.11.3'
    compile group: 'com.fasterxml.jackson.datatype', name: 'jackson-datatype-jdk8', version: '2.11.3'
 
    testImplementation 'junit:junit:4.12'
+   
+   
+   // webjar
+ 	compile group: 'org.webjars', name: 'bootstrap', version: '4.3.1'
+	compile group: 'org.webjars.npm', name: 'vue', version: '2.5.16'
+	compile group: 'org.webjars.npm', name: 'axios', version: '0.17.1'
+	compile group: 'org.webjars', name: 'sockjs-client', version: '1.1.2'
+	compile group: 'org.webjars', name: 'stomp-websocket', version: '2.3.3-1'
+   
 }
